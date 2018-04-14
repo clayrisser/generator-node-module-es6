@@ -1,22 +1,33 @@
 {
   "name": "<%= name %>",
   "version": "<%= version %>",
-  "description": "<%= description %>",
+  "description": "<%= description %>",<% if (keywords && keywords.length) { %>
+  "keywords": [<% for (keyword in keywords) { %>
+    "<%= keyword %>"<% } %>
+  ],<% } %>
   "homepage": "<%= homepage %>",
+  "bugs": {
+    "url": "<%= repository %>/issues",
+    "email": "<%= authorEmail %>"
+  },
+  "license": "<%= license %>",
   "author": {
     "name": "<%= authorName %>",
     "email": "<%= authorEmail %>",
     "url": "<%= authorUrl %>"
+  },<% if (files && files.length) { %>
+  "files": [<% for (file in files) { %>
+    "<%= file %>"<% } %>
+  ],<% } %>
+  "main": "<%= main %>",<% if (bin && bin.length) { %>
+  "bin": {
+    "<%= name %>": "<%= bin %>"
+  },<% } %>
+  "repository": {
+    "type" : "git",
+    "url" : "<%= repository %>"
   },
-  "main": "lib/index.js",
-  "files": ["lib"],
-  "scripts": {
-    "lint": "eslint ./",
-    "lint:fix": "eslint --fix ./",
-    "build": "npm run clean && babel src -d lib",
-    "clean": "rm -rf lib",
-    "prepublish": "npm run build"
-  },
+  "scripts": {},
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -28,23 +39,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.9.0"
   },
-  "license": "<%= license %>",
-  "repository": "<%= repository %>",
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "4"
-          }
-        }
-      ],
-      "stage-2"
-    ]
-  },
-  "engines": {
-    "node": ">= 4.0.0"
-  },
-  "eslintIgnore": ["lib"]
+  "engines" : {
+    "node" : ">=4.0.0"
+  }
 }
