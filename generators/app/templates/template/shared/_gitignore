@@ -34,17 +34,12 @@ node_modules
 # Optional REPL history
 .node_repl_history
 
-# Editors
-*~
-.\#*
-\#*\#
-idea/
-
-# Editor
+# editors
 \#*\#
 .\#*
 *~
 .idea/
 
-# Application
-lib/
+# application
+/lib<% if (!lock) { %>
+package-lock.json<% } %>

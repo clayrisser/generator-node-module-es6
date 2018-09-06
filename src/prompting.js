@@ -27,7 +27,7 @@ export default async function prompting(yo) {
     repository: true,
     version: true
   });
-  const keywords = [];
+  const keywords = [name];
   for (;;) {
     const { keyword } = await yo.prompt([
       {
@@ -39,28 +39,18 @@ export default async function prompting(yo) {
     if (keyword === '') break;
     keywords.push(keyword);
   }
-  const files = [];
-  for (;;) {
-    const { file } = await yo.prompt([
-      {
-        type: 'input',
-        name: 'file',
-        message: 'File:'
-      }
-    ]);
-    if (file === '') break;
-    files.push(file);
-  }
-  const { install, main, bin } = await yo.optionOrPrompt([
+  const { install, bin, lock } = await yo.optionOrPrompt([
     {
-      type: 'input',
-      name: 'main',
-      message: 'Main:'
+      type: 'confirm',
+      name: 'bin',
+      message: 'Project is a bin',
+      default: false
     },
     {
-      type: 'input',
-      name: 'bin',
-      message: 'Bin:'
+      type: 'confirm',
+      name: 'lock',
+      message: 'Support package-lock.json',
+      default: false
     },
     {
       type: 'confirm',
@@ -74,15 +64,14 @@ export default async function prompting(yo) {
     authorName,
     authorUrl,
     bin,
+    lock,
     description,
     destination,
-    files,
     githubUsername,
     homepage,
     install,
     keywords,
     license,
-    main,
     name,
     repository,
     version

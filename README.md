@@ -4,7 +4,7 @@
 [![Beerpay](https://beerpay.io/codejamninja/generator-node-module-es6/make-wish.svg?style=flat-square)](https://beerpay.io/codejamninja/generator-node-module-es6?focus=wish)
 [![GitHub stars](https://img.shields.io/github/stars/codejamninja/generator-node-module-es6.svg?style=social&label=Stars)](https://github.com/codejamninja/generator-node-module-es6)
 
-> Yeoman generator for es6 node modules
+> yeoman generator for es6 node modules
 
 Please ★ this repo if you found it useful ★ ★ ★
 
