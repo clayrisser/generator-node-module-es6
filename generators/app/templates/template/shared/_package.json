@@ -29,27 +29,25 @@
     "url" : "<%= repository %>"
   },
   "scripts": {
-    "build": "babel src -d lib",
-    "clean": "rimraf lib",
+    "build": "npm run test && babel src -d lib",
+    "clean": "git clean -fXd -e \\!node_modules -e \\!node_modules/**/*",
+    "clean:purge": "git clean -fXd",
+    "format": "prettier --write ./src/**/*.js",
     "lint": "npm run format && eslint ./",
     "lint:fix": "npm run format && eslint --fix ./",
-    "format": "prettier --write ./src/**/*.js",
-    "prepublish": "npm run clean && npm run build",
-    "start": "babel-node src"
+    "prepublish": "npm run build",
+    "start": "babel-node src",
+    "test": "npm run lint"
   },
   "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "^9.0.0",
-    "babel-preset-everything": "^0.1.2",
-    "eslint": "^5.5.0",
-    "eslint-config-jam": "^0.1.2",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.1",
-    "rimraf": "^2.6.2"
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/node": "^7.2.0",
+    "babel-preset-jam": "^0.1.0",
+    "eslint": "^5.9.0",
+    "eslint-config-jam": "^0.1.6",
+    "yo": "^2.0.5"
   },
   "engines" : {
     "node" : ">=6.0.0"
