@@ -6,6 +6,8 @@
 
 > yeoman generator for es6 node modules
 
+![](assets/generator-node-module-es6.png)
+
 Please ★ this repo if you found it useful ★ ★ ★
 
 
